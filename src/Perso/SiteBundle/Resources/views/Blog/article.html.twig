@@ -1,0 +1,31 @@
+
+{% extends 'PersoSiteBundle::layout.html.twig' %}
+{% block body %}
+
+<section id="content">
+<h1 class="title_post">{{ post.title  }}</h1>
+<div class="data_post">
+<span>
+	<i class="fa fa-clock-o"></i> Posté le {{ post.created | date('d/m/y') }}
+</span>
+<span>
+	<i class="fa fa-user"></i> Cédric
+</span>
+<span>
+	<i class="fa fa-tags"></i> Catégorie: </span> 
+{% if post.categories.count > 0  %}
+	{%  for cat in post.categories %}
+		{{ cat.nom }}
+	{% endfor %}
+{% endif %}
+
+<span><i class="fa fa_search">{% if post.vue < 2 %} Vue: {% else %} Vues : {%  endif %}</i> {{  post.vue }} </span>
+</div>
+<div id="content_post">
+<img class= "img_post" src="{{ asset('uploads/images/'~post.image) }}" />
+
+{{ post.message }}
+
+</div>
+</section>
+{% endblock %}

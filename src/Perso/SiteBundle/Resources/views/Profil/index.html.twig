@@ -1,0 +1,139 @@
+{% extends 'PersoSiteBundle::layout.html.twig' %}
+
+{% block body %}
+
+<section id="content" class="container-fluid">
+    			
+    			<h3 class="section-title" name="perso"><span class="glyphicon glyphicon-user"></span> Infos Personnel </h3>
+    			<div class="row personnel">
+    				<div class="row">
+	    				<div class="col-md-2 bold colorB2">
+	    					Nom:
+	    				</div>
+	    				<div class="col-md-10">
+	    					LENQUETTE				
+	    				</div>
+    				</div>
+    				<hr>
+    				<div class="row">
+	    				<div class="col-md-2 bold colorB2">
+	    					Prénom:
+	    				</div>
+	    				<div class="col-md-10">
+	    					Cédric				
+	    				</div>
+    				</div>
+    				<hr>
+    				<div class="row">
+	    				<div class="col-md-2 bold colorB2 ">
+	    					Âge:
+	    				</div>
+	    				<div class="col-md-10">
+	    					24 ans 				
+	    				</div>
+    				</div>
+    				<hr>
+    				<div class="row">
+	    				<div class="col-md-2 bold colorB2 ">
+	    					Ville:
+	    				</div>
+	    				<div class="col-md-10">
+	    					Lille 				
+	    				</div>
+	    				
+    				</div>
+    				<hr>
+    				<div class="row">
+	    				<div class="col-md-2 bold colorB2 ">
+	    					Permis/Vehicule:
+	    				</div>
+	    				<div class="col-md-10">
+	    					Permis B et véhiculé		
+	    				</div>
+    				</div>
+    				<hr>
+    				
+    			</div>
+    		
+       		 	<h3 class="section-title" name="competence"><span class="glyphicon glyphicon-cog"></span>Compétences</h3> 
+    			<div class="row competence">
+    				<h4>Developpement</h4>
+    				<span class="label">PHP</span> <span class="label">JAVA/JEE</span> <span class="label">C</span>
+    				<hr>
+    				<h4>WEB (Framework/outils)</h4>
+    				PHP : <span class="label">Symfony2</span> <br/>
+    				CSS/JS: <span class="label">Foundation</span> <span class="label">Bootstrap</span><br/>
+    				Librairies JS: <span class="label">JQuery</span> <span class="label">Mootools</span>
+    				<hr>
+    				<h4> CMS </h4>
+    				<span class="label">Joomla</span> <span class="label">Wordpress</span> <span class="label">Prestashop</span>
+    			</div>
+    		
+    		
+    		    <h3 class="section-title" name="experience"> <span class="glyphicon glyphicon-briefcase"></span>Expériences professionnelles</h3> 
+    			
+    			<div class="row employement">
+    				<div id="timeline" class="col-md-12">					
+    					{% for experience in experiences %}
+    					<div class="timeline-item row" >
+    						<div class="date-tl col-md-1">
+    							<span class="fh13"> du {{ experience.dateDebut | date('m/y') }} <br/>au {{ experience.dateFin | date('m/y') }}</span>
+    						</div>
+    						<div class="col-md-11">
+	    						<div class="more-tl">
+	    							<span class="glyphicons glyphicon-plus " data-toggle="collapse" data-target="#itemcontent{{ experience.id }}">
+	    							</span>
+	    						</div>
+	    						<div class="arrow-tl">
+	    						 <i> </i>
+	    						</div>
+	    						<div class="content-tl">
+	    							<h3 data-toggle="collapse" data-target="#itemcontent{{ experience.id }}">{{ experience.company }} <span class="fh13"> {{ experience.name }}</span></h3>
+	    							<div class="content-desc collapse" id="itemcontent{{ experience.id }}">
+	    							{{ experience.description | raw }}
+	    							</div>
+	    						</div>
+	    					</div>
+    					</div>
+    								
+    					{% endfor %}
+    					
+    				</div>
+    				
+    			</div>
+    			
+    			
+    			<h3 class="section-title" name="formation"><span class="glyphicon glyphicon-pencil"></span>Formations</h3> 
+    			<div class="row">
+    				<div id="timeline" class="col-md-12">
+    					
+    					{% for formation in formations %}
+    					<div class="timeline-item row" >
+    						<div class="date-tl col-md-1">
+    							<span class="fh13"> de {{ formation.dateDebut | date('m/y') }} <br/>à {{ formation.dateFin | date('m/y') }}</span>
+    						</div>
+    						<div class="col-md-11">
+	    						<div class="more-tl">
+	    							<span class="glyphicons glyphicon-plus " data-toggle="collapse" data-target="#itemcontentStudy{{ formation.id }}">
+	    							</span>
+	    						</div>
+	    						<div class="arrow-tl">
+	    						 <i> </i>
+	    						</div>
+	    						<div class="content-tl">
+	    							<h3 data-toggle="collapse" data-target="#itemcontentStudy{{ formation.id }}">{{ formation.name }} <span class="fh13">{{ formation.study }}</span></h3>
+	    							<div class="content-desc collapse" id="itemcontentStudy{{ formation.id }}">
+	    							{{ formation.description | raw }}
+	    							</div>
+	    						</div>
+	    					</div>
+    					</div>
+    								
+    					{% endfor %}
+    					
+    				</div>
+    				
+    			</div>
+    			
+</section>  
+{% endblock %}

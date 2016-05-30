@@ -1,0 +1,21 @@
+perso_site_homepage:
+    pattern:  /
+    defaults: { _controller: 'PersoSiteBundle:Home:index' }
+    
+perso_site_cv:
+  pattern: /cv
+  defaults: { _controller: 'PersoSiteBundle:CV:index'}
+  
+perso_site_profil:
+  pattern: /profil
+  defaults: { _controller: 'PersoSiteBundle:Profil:index'}
+  
+perso_blog_articleNull:
+  pattern: /article
+  defaults: { _controller: 'PersoSiteBundle:Home:articleNull'}
+  
+perso_blog_article:
+  pattern: /article/{id}
+  defaults: { _controller: 'PersoSiteBundle:Home:article'}
+   
+ 

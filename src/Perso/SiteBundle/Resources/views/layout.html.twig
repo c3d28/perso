@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site personnel de Cédric LENQUETTE</title>
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
+		<link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('css/global.css') }}" type="text/css" /> 
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" /> 
+		<link rel="stylesheet" href="{{ asset('bootflat/css/bootflat.min.css') }}" type="text/css" /> 
+		
+		  <meta charset="UTF-8">
+		  
+	
+{% endblock %}   
+    </head>
+    <body>
+    	<header id="header">
+    		<div class="home "><span class="fa fa-home"></span></div><a href="{{ path('perso_site_homepage') }}" class="logo pull-left">Cédric LENQUETTE</a> 
+    		{% if app.request.attributes.get('_route') == 'perso_site_profil' %}
+    		<div id="menuCV" class="menu pull-left fh18">
+    			<a href="#perso"><span class="glyphicon glyphicon-user"></span></a>
+    			<a href="#competence"><span class="glyphicon glyphicon-cog"></span></a>
+    			<a href="#experience"><span class="glyphicon glyphicon-briefcase"></span>
+    			<a href="#formation"><span class="glyphicon glyphicon-pencil"></span></a>
+    		</div>
+    		{% endif %}
+    		<div class="fright form-search search-only">
+               <i class="search-icon glyphicon glyphicon-search"></i>
+               <input type="text" class="form-control search-query">
+            </div>
+    	</header>
+    	<div class="clearfix"></div>
+    	<section id="main" role="main">
+    		<aside id="sidebar">
+    			<div class="profil-side">
+    				<div id="profil-pic">
+    					<img src="{{ asset('img/photoperso.jpg') }}" />
+    				</div>
+    				<div id="profil-info" >
+    					<span class="fh20 bold">LENQUETTE Cédric</span><br/>
+     					<span class="fh14">
+	     					Etudiant à Lille en 2ème année de Master MIAGE. Je suis passionné par le web, le marketing et le webdesign.<br/>
+	     					Internet offre des possibilités qu'on ne connait même pas encore et c'est ça qui me motive à toujours être up-to-date.
+     					 </span>
+     					 <br/>
+     					 	<!-- Without network -->
+     					 	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+							<script type="IN/MemberProfile" data-id="fr.linkedin.com/pub/cédric-lenquette/65/724/896/" data-format="hover" data-text="Cédric Lenquette"></script>
+			    			<a href="https://twitter.com/c3d28" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
+			    			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			    			
+       				</div>
+    				
+
+    			</div>
+    		</aside>
+    		<!-- End Aside -->
+    		
+    		{% block body %}
+    		
+			{% endblock  %}
+    			
+    	</section>
+
+    </body>
+    {% block javascript %}
+    	<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+     	<script type="text/javascript" src="{{ asset('js/action.js') }}"></script>
+    
+		<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+	
+	{% endblock %}   
+</html>

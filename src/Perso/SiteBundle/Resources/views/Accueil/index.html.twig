@@ -1,0 +1,103 @@
+{% extends 'PersoSiteBundle::layout.html.twig' %} 
+
+{% block body %}
+<section id="content" class="container-fluid">
+
+<!-- BEGIN ENCART DEROULANT -->
+<div class="row">
+	<div class="col-md-7 block">
+		<div class="block_title">
+			
+			{% for cat in cats|slice(0,3)   %}
+				
+					<div id="choix{{ loop.index  }}" {% if loop.index == 1 %}class="active"{%   endif %} >{{ cat.nom }}</div> 
+				
+			{%  endfor %}
+			
+			<span class="fa fa-arrow-circle-right fright"></span><span class="fright fa fa-arrow-circle-left"></span>
+		</div>
+		<hr>
+		<div class="block_content block_contentHide mt10">
+			{% for cat in cats|slice(0,3)   %}
+				<div id="content{{ loop.index }}" {% if loop.index == 1 %} class="active" {% endif %}>
+					<div class="row">
+						{% if cat.posts is not empty %}
+							{% for post in cat.posts | slice(-3,3) | reverse %}
+							<div class="col-md-4">
+								<img src="{{ asset('uploads/images/'~post.image) }}"/> 
+								<span>{{ post.title }} {{ post.message | truncate(20, true, '...') }}</span>
+							</div>
+							{% endfor %}
+						{% endif %}
+						
+					</div>
+				</div>
+			{% endfor %}
+		
+		</div>
+	</div>
+
+</div>
+<!-- END ENCART DEROULANT -->
+
+<!-- BEGIN A LA UNE -->
+<div class="row spaceTop">
+	<div class="col-md-10 block">
+		<div class="block_title">
+			<span>A la Une</span>
+		</div>
+		<hr>
+		<div class="block_content mt5">
+			
+		{% if posts is not empty %}
+			<div class="uneTop row">
+				<div class="imgArticle col-md-3">
+					<img src="{{ asset('uploads/images/'~ posts[0].image) }}"/>
+				</div>
+				<div class="descArticle col-md-9">
+					<h4 class="mt5"><a href="article/{{ posts[0].id }}">{{ posts[0].title }}</a></h4>
+					<p>
+						{{ posts[0].message }}					
+					</p>
+				</div>
+			</div>
+			
+			<div class="uneFoot row mt10">
+				<div class="uneFoot1 col-md-6">
+					<div class="row">
+						<div class="imgArticle col-md-4">
+							<img src="{{ asset('uploads/images/'~ posts[1].image) }}"/> 
+						</div>
+						<div class="descArticle col-md-8">
+							<h4 class="mt5"><a href="article/{{ posts[1].id }}">{{ posts[1].title }}</a></h4>
+							{{ posts[1].message }}
+						</div>
+					</div>
+				</div>
+				{% if posts[2] is defined %}
+				<div class="uneFoot2 col-md-6">
+					<div class="row">
+						<div class="imgArticle col-md-4">
+							<img src="{{ asset('uploads/images/'~ posts[2].image) }}"/> 
+						</div>
+						<div class="descArticle col-md-8">
+							<h4 class="mt5"><a href="#">{{ posts[2].title }}</a></h4>
+							{{ posts[2].message }}
+						</div>
+					</div>
+				</div>	
+				{% else %}
+				{% endif %}
+			</div>
+		{% else %}
+				   aucun article
+		{% endif %}
+		
+		</div>
+	</div>
+</div>
+<!-- END A LA UNE  -->
+
+
+
+{% endblock %}

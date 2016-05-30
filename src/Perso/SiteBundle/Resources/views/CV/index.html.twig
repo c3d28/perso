@@ -1,0 +1,84 @@
+{% extends 'PersoSiteBundle::layout.html.twig' %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+      	<div class="row">
+      		<div class="col-lg-8">
+	      		<h1>Informations Personnelles </h1>
+		        <p>Né le 28 Mars 1990 à Valenciennes (59 - Nord)</p>
+		        <p>Réside à Lille (59)</p>
+		        <p>Téléphone</p>
+		        <p>Mail: </p>
+		        <p>
+		          <a role="button" href="#" class="btn btn-lg btn-primary">Contact</a>
+		        </p>
+      		</div>
+      		<div class="col-lg-3 col-lg-4-offset">
+      			<img src="{{ asset('img/photoperso.jpg') }}" class="img-thumbnail"/>
+      		</div>
+      	</div>
+        
+      </div>
+
+</div>
+<div class="container-fluid">
+	<div class="row">
+<h1>Compétences Techniques</h1>
+	
+		<div class="col-lg-4 langage">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Langage
+				</div>
+				<div class="panel-body">
+					<ul>{% for competence in competences %}
+						<li>{{ competence.name }}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 framework">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Framework CSS/JS 
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li>Framework CSS: Bootstrap / Foundation5
+						<li>Framework JS: JQuery
+						<li>Framework PHP: Symphony2
+						<li>HTML5/CSS3
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 model">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				 	Base de Données et Modélisation 
+				</div>
+				<div class="panel-body">
+				<ul>
+						<li>Bdd: Oracle - MySQl - PostGrSQL
+						<li>Modélisation: UML - Merise
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<h1>Expériences professionnelles</h1>
+	</div>
+	
+</div>
+
+{% endblock %}
